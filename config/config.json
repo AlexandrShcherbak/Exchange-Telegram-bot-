@@ -1,0 +1,37 @@
+{
+  "bot": {
+    "name": "Crypto Exchange Bot",
+    "currency": "RUB",
+    "min_deposit": 10,
+    "min_withdraw": 50,
+    "support_link": "https://t.me/support"
+  },
+  "exchange": {
+    "trx_markup": 5,
+    "btc_markup": 3,
+    "eth_markup": 4,
+    "usdt_markup": 2,
+    "update_interval": 60000
+  },
+  "payment": {
+    "freekassa": {
+      "enabled": true,
+      "test_mode": false
+    },
+    "cryptobot": {
+      "enabled": true,
+      "currencies": ["USDT", "TON", "BTC", "ETH", "BNB", "TRX"]
+    },
+    "yoomoney": {
+      "enabled": true,
+      "min_amount": 105
+    },
+    "crystallpay": {
+      "enabled": true
+    }
+  },
+  "database": {
+    "dialect": "postgres",
+    "logging": false
+  }
+}
