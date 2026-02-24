@@ -13,8 +13,8 @@ const sequelize = new Sequelize(
   }
 );
 
-const initDatabase = async () => {␊
-  try {␊
+const initDatabase = async () => {
+  try {
     await sequelize.authenticate();
     logger.info('Database connection established');
     
@@ -37,3 +37,4 @@ const initDatabase = async () => {␊
 };
 
 module.exports = { sequelize, initDatabase };
+
