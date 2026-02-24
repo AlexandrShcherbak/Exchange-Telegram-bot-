@@ -13,8 +13,8 @@ const sequelize = new Sequelize(
   }
 );
 
-const initDatabase = async () => {
-  try {
+const initDatabase = async () => {␊
+  try {␊
     await sequelize.authenticate();
     logger.info('Database connection established');
     
@@ -23,8 +23,13 @@ const initDatabase = async () => {
     require('./models/Payment')(sequelize);
     require('./models/Transaction')(sequelize);
     
-    await sequelize.sync({ alter: true });
-    logger.info('Database models synchronized');
+    const allowRuntimeSync = process.env.DB_SYNC === 'true';
+    if (allowRuntimeSync) {
+      await sequelize.sync();
+      logger.info('Database models synchronized (DB_SYNC=true)');
+    } else {
+      logger.info('Runtime schema sync disabled. Use migrations to manage schema changes.');
+    }
   } catch (error) {
     logger.error('Unable to connect to database:', error);
     throw error;
