@@ -1,4 +1,3 @@
-require('dotenv').config();
 const { Telegraf } = require('telegraf');
 const express = require('express');
 const logger = require('./src/utils/logger');
